@@ -24,5 +24,16 @@ In this project there is two role teacher and student:
   - manage your account
   - search app password
   - add name and create password
+- mongoDb
+  - mongodb atlas search and open
+  - goto database - new project create - click create project
+  - overview cluster and make free (cluser: mongodb server, atlas -  cloud-based database service, compass- graphical user interface (GUI) tool provided by MongoDB)
+  - create deployment
+  - username and password
+  - choose a connection method
+  - goto compass
+  - add have install or not choose and done
+ 
+
  
 
