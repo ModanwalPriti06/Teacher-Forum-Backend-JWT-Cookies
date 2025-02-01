@@ -20,4 +20,9 @@ In this project there is two role teacher and student:
 - login page
 - search bar
 - send otp on email and get otp number
-  - ndkaned
+  - goto email
+  - manage your account
+  - search app password
+  - add name and create password
+ 
+
