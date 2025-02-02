@@ -33,6 +33,17 @@ In this project there is two role teacher and student:
   - choose a connection method
   - goto compass
   - add have install or not choose and done
+
+# Frontend connect backend
+- make backend folder
+- npm init
+- npm i bcrypt body-parser cookie-parser dotenv express jsonwebtoken mongoose nodemailer
+  - nodemailer - use for send otp and mail
+- make folder - index.js, middleware, .env , models, routes and utiles 
+- work on index.js and import express and all
+  ```
+  
+  ```
  
 
  
