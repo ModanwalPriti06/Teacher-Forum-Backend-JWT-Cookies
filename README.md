@@ -118,7 +118,7 @@ userSchema.pre("save", async function (next) {
 
 ## Facing issue
 - Sending otp : resolve to add Ip Address with the help of stack overflow and chatgpt.
-- 
+- Login and not navigating home page: Not updating auth data in AuthContext
 
 
 
