@@ -114,6 +114,7 @@ userSchema.pre("save", async function (next) {
 - nodemailer for sned mail and otp
 - auth token from req.cookies
 - refresh token
+- npm i toastify, npm install react-toastify. (very nice thing for ui alert/popup like erp props.setSnackInfo)
 - 
 
 
