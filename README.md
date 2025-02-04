@@ -115,6 +115,9 @@ userSchema.pre("save", async function (next) {
 - auth token from req.cookies
 - refresh token
 - npm i toastify, npm install react-toastify. (very nice thing for ui alert/popup like erp props.setSnackInfo)
+
+## Facing issue
+- Sending otp : resolve to add Ip Address with the help of stack overflow and chatgpt.
 - 
 
 
