@@ -161,7 +161,7 @@ router.post('/login', async (req, res, next) => {
 
 //authTokenHandler : check token and refresh token  which has created 
 router.get('/checklogin', authTokenHandler, async (req, res, next) => {
-    console.log('check login',req.message)
+    // console.log('check login',req.message)
     res.json({
         ok: req.ok,
         message: req.message,

@@ -13,13 +13,18 @@ const mailer = async (recieveremail, code) => {
     //  in this transporter we are doing sending otp 
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
+        port: 465,  
+        // port: 587,
+        // secure: false,
+        secure: true,  // Must be true for port 465
         requireTLS: true,
         auth: {
             user: process.env.COMPANY_EMAIL,
             pass: process.env.GMAIL_APP_PASSWORD
-        }
+        },
+        tls: {
+            rejectUnauthorized: false, // ✅ Fix for some network issues
+        },
     })
     // send that email
     let info = await transporter.sendMail({
@@ -169,7 +174,6 @@ router.post('/request-to-join', async (req, res) => {
         });
         await newClassroomJoin.save();
         return responseFunction(res, 200, 'OTP sent to the class owner', null, true);
-
     }
     catch (err) {
         console.log(err)

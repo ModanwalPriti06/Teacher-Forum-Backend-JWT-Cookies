@@ -22,8 +22,6 @@ const ClassroomSchema = new mongoose.Schema({
     }]
 }, { timestamps: true });
 
-
-
 const Classroom = mongoose.model('Classroom', ClassroomSchema);
 
 module.exports = Classroom;
