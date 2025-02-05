@@ -19,10 +19,10 @@ const ClassroomSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    // posts: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Post', // Reference to the Post model
-    // }]
+    posts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post', // Reference to the Post model
+    }]
 }, { timestamps: true });
 
 

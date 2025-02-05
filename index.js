@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const classroomRoutes = require('./routes/classroomRoutes');
-
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -38,7 +37,7 @@ app.use(cookieParser({
 
 
 app.use('/auth' , authRoutes);
-// app.use('/class', classroomRoutes);
+app.use('/class', classroomRoutes);
 
 app.get('/', (req, res)=>{
     console.log('hello');

@@ -16,7 +16,7 @@ const mailer = async (recieveremail, code) => {
     //  in this transporter we are doing sending otp 
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        post: 587,
+        port: 587,
         secure: false,
         requireTLS: true,
         auth: {
@@ -167,13 +167,13 @@ router.get('/checklogin', authTokenHandler, async (req, res, next) => {
         message: req.message,
         userId: req.userId   //que-> from where we are getting req.userId?  ans-> checkAuthToken.js file function their if user is valid then sending token with userId
     })
-}
-)
+ })
 
 //get user api
 router.get('/getuser', authTokenHandler, async (req, res, next) => {
     try {
         const user = await User.findById(req.userId).select('-password');
+        // console.log("user",user)
         if (!user) {
             return responseFunction(res, 400, 'User not found', null, false);
         }
