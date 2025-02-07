@@ -16,13 +16,16 @@ const mailer = async (recieveremail, code) => {
     //  in this transporter we are doing sending otp 
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
+        port: 465,  
+        secure: true,
         requireTLS: true,
         auth: {
             user: process.env.COMPANY_EMAIL,
             pass: process.env.GMAIL_APP_PASSWORD
-        }
+        },
+        tls: {
+            rejectUnauthorized: false, // ✅ Fix for some network issues
+        },
     })
     // send that email
     let info = await transporter.sendMail({
