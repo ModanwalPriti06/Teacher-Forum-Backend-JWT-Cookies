@@ -123,7 +123,7 @@ userSchema.pre("save", async function (next) {
 ## JWT Token
 In a JWT-based authentication system, two tokens are commonly used:
 
-####1️⃣ Access Token
+#### 1️⃣ Access Token
 - Short-lived (e.g., 15 minutes to a few hours).
 - Used to authenticate API requests.
 - Stored in memory or HTTP-only cookies (safer than local storage).
