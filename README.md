@@ -123,21 +123,22 @@ userSchema.pre("save", async function (next) {
 ## JWT Token
 In a JWT-based authentication system, two tokens are commonly used:
 
-1️⃣ Access Token
-Short-lived (e.g., 15 minutes to a few hours).
-Used to authenticate API requests.
-Stored in memory or HTTP-only cookies (safer than local storage).
-Expires quickly for security reasons.
-2️⃣ Refresh Token
-Long-lived (e.g., days to weeks).
-Used to request a new access token when it expires.
-Stored securely (preferably HTTP-only cookies).
-Cannot access protected routes directly, only used for refreshing access tokens.
-How They Work Together?
-User logs in → Receives access & refresh tokens.
-Access token is used for API requests.
-When the access token expires → The refresh token is sent to get a new access token.
-If the refresh token expires → User must log in again.
+####1️⃣ Access Token
+- Short-lived (e.g., 15 minutes to a few hours).
+- Used to authenticate API requests.
+- Stored in memory or HTTP-only cookies (safer than local storage).
+- Expires quickly for security reasons.
+#### 2️⃣ Refresh Token
+- Long-lived (e.g., days to weeks).
+- Used to request a new access token when it expires.
+- Stored securely (preferably HTTP-only cookies).
+- Cannot access protected routes directly, only used for refreshing access tokens.
+
+#### How They Work Together?
+- User logs in → Receives access & refresh tokens.
+- Access token is used for API requests.
+- When the access token expires → The refresh token is sent to get a new access token.
+- If the refresh token expires → User must log in again.
 
 
 
