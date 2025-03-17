@@ -234,6 +234,12 @@ app.get("/protected", authenticate, (req, res) => {
 - When the access token expires → The refresh token is sent to get a new access token.
 - If the refresh token expires → User must log in again.
 
+## Why JWT is NOT Needed in Login?
+- The login API is where the user proves their identity by providing email and password.
+- At this stage, the user doesn't have a token yet.
+- The login process generates JWT after successful authentication.
+- JWT is only needed for subsequent requests after login.
+
 
 
 
