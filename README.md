@@ -119,6 +119,54 @@ userSchema.pre("save", async function (next) {
 ## Facing issue
 - Sending otp : resolve to add Ip Address with the help of stack overflow and chatgpt.
 - Login and not navigating home page: Not updating auth data in AuthContext.
+---
+# JWT
+- JWT (JSON Web Token) is a secure and compact way to transmit information between parties as a JSON object. It is commonly used for authentication and authorization in web applications.
+
+## How JWT Works?
+- User Logs In – The user provides credentials (e.g., email & password).
+- Server Generates JWT – If credentials are valid, the server creates a JWT and sends it to the client.
+- Client Stores Token – The client stores the JWT (usually in localStorage or HTTP-only cookies).
+- Client Sends JWT with Requests – For protected routes, the client includes the JWT in the request headers.
+- Server Verifies JWT – The server checks the token’s validity. If valid, it grants access; otherwise, it rejects the request.
+
+## JWT Structure 🏗️
+```
+Header.Payload.Signature
+```
+- Header – Contains metadata like the algorithm used (HS256).
+- Payload – Contains user data (e.g., user ID, expiration time).
+- Signature – A hashed value to verify the token’s integrity.
+
+## JWT Authentication Example in Node.js (Express)
+- Generating JWT
+```
+const jwt = require('jsonwebtoken');
+const user = { id: 1, username: "priti" };
+
+const secretKey = "yourSecretKey"; 
+// Generate Token
+const token = jwt.sign(user, secretKey, { expiresIn: "1h" });
+console.log("JWT:", token);
+```
+
+- Verifying JWT (Middleware)
+```
+const authenticateJWT = (req, res, next) => {
+  const token = req.header("Authorization");
+
+  if (!token) return res.status(403).send("Access Denied");
+  try {
+    const verified = jwt.verify(token, secretKey);
+    req.user = verified;
+    next();
+  } catch (error) {
+    res.status(400).send("Invalid Token");
+  }
+};
+```
+
+
 
 ## JWT Token
 In a JWT-based authentication system, two tokens are commonly used:
