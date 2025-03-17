@@ -150,6 +150,7 @@ const secretKey = "yourSecretKey";
 const token = jwt.sign(user, secretKey, { expiresIn: "1h" });
 console.log("JWT:", token);
 ```
+- The jwt.sign() function is used to create a new JSON Web Token (JWT) by encoding a payload (user data) and signing it with a secret key.
 
 - Verifying JWT (Middleware)
 ```
@@ -165,6 +166,46 @@ const authenticateJWT = (req, res, next) => {
     res.status(400).send("Invalid Token");
   }
 };
+```
+- The jwt.verify() function is used to decode and validate a JWT (JSON Web Token). It ensures that the token is valid and has not been tampered with. If the token is valid, it returns the decoded payload; otherwise, it throws an error.
+
+```
+jwt.verify(token, secretKey, [options], [callback])
+```
+```
+const token = jwt.sign({ userId: "12345" }, secretKey, { expiresIn: "1h" });
+setTimeout(() => {
+    try {
+        const decoded = jwt.verify(token, secretKey);
+        console.log("Token is still valid:", decoded);
+    } catch (error) {
+        console.log("Token has expired:", error.message);
+    }
+}, 3600000); // 1 hour later
+```
+- In a Node.js + Express.js app, jwt.verify() is commonly used in middleware to protect routes.
+
+```
+const authenticate = (req, res, next) => {
+    const token = req.cookies.authToken || req.headers.authorization?.split(" ")[1];
+
+    if (!token) {
+        return res.status(401).json({ message: "Unauthorized: No token provided" });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        req.user = decoded; // Attach user info to request
+        next(); // Proceed to the next middleware
+    } catch (error) {
+        return res.status(403).json({ message: "Forbidden: Invalid token" });
+    }
+};
+
+app.get("/protected", authenticate, (req, res) => {
+    res.json({ message: "Welcome to the protected route!", user: req.user });
+});
+
 ```
 
 ## Where is JWT Used?
