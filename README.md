@@ -122,6 +122,7 @@ userSchema.pre("save", async function (next) {
 ---
 # JWT
 - JWT (JSON Web Token) is a secure and compact way to transmit information between parties as a JSON object. It is commonly used for authentication and authorization in web applications.
+- JWT is stateless, meaning the server doesn’t store sessions, making it scalable and efficient!
 
 ## How JWT Works?
 - User Logs In – The user provides credentials (e.g., email & password).
@@ -130,13 +131,13 @@ userSchema.pre("save", async function (next) {
 - Client Sends JWT with Requests – For protected routes, the client includes the JWT in the request headers.
 - Server Verifies JWT – The server checks the token’s validity. If valid, it grants access; otherwise, it rejects the request.
 
-## JWT Structure 🏗️
+## JWT Structure 
 ```
 Header.Payload.Signature
 ```
-- Header – Contains metadata like the algorithm used (HS256).
-- Payload – Contains user data (e.g., user ID, expiration time).
-- Signature – A hashed value to verify the token’s integrity.
+- Header : Contains metadata like the algorithm used (HS256).
+- Payload : Contains user data (e.g., user ID, expiration time).
+- Signature : A hashed value to verify the token’s integrity.
 
 ## JWT Authentication Example in Node.js (Express)
 - Generating JWT
@@ -166,10 +167,14 @@ const authenticateJWT = (req, res, next) => {
 };
 ```
 
-
+## Where is JWT Used?
+- User Authentication (Login systems)
+- Authorization (Restrict access to certain pages)
+- API Security (Protect routes)
+- Microservices Communication
 
 ## JWT Token
-In a JWT-based authentication system, two tokens are commonly used:
+- In a JWT-based authentication system, two tokens are commonly used:
 
 #### 1️⃣ Access Token
 - Short-lived (e.g., 15 minutes to a few hours).
@@ -187,6 +192,7 @@ In a JWT-based authentication system, two tokens are commonly used:
 - Access token is used for API requests.
 - When the access token expires → The refresh token is sent to get a new access token.
 - If the refresh token expires → User must log in again.
+
 
 
 
