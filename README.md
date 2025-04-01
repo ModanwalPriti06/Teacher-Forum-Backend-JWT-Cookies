@@ -124,6 +124,8 @@ userSchema.pre("save", async function (next) {
 - JWT (JSON Web Token) is a secure and compact way to transmit information between parties as a JSON object. It is commonly used for authentication and authorization in web applications.
 - JWT is stateless, meaning the server doesn’t store sessions, making it scalable and efficient!
 
+<img width="1680" alt="Screenshot 2025-04-01 at 10 47 55 PM" src="https://github.com/user-attachments/assets/d33a3da4-157e-4bc9-9237-e40e768d0ffd" />
+
 ## How JWT Works?
 - User Logs In – The user provides credentials (e.g., email & password). sessionId store in server memory.
 - Server Generates JWT – If credentials are valid, the server creates a JWT and sends it to the client.
@@ -134,6 +136,7 @@ userSchema.pre("save", async function (next) {
 ## JWT Structure 
 ```
 Header.Payload.Signature
+
 ```
 - Header : Contains metadata like the algorithm used (HS256).
 - Payload : Contains user data (e.g., user ID, expiration time).
