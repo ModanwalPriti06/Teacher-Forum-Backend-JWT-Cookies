@@ -139,6 +139,10 @@ Header.Payload.Signature
 - Payload : Contains user data (e.g., user ID, expiration time).
 - Signature : A hashed value to verify the token’s integrity.
 
+## JWT Hazards 
+- XSS - cross-site scripting
+- CSRF - CS Request Forgrey
+  
 ## JWT Authentication Example in Node.js (Express)
 - Generating JWT
 ```
@@ -222,11 +226,13 @@ app.get("/protected", authenticate, (req, res) => {
 - Used to authenticate API requests.
 - Stored in memory or HTTP-only cookies (safer than local storage).
 - Expires quickly for security reasons.
+- Sent as JSON client stores in memory, Do not store in local storage or cookie. 
 #### 2️⃣ Refresh Token
 - Long-lived (e.g., days to weeks).
 - Used to request a new access token when it expires.
 - Stored securely (preferably HTTP-only cookies).
 - Cannot access protected routes directly, only used for refreshing access tokens.
+- Sent as httpOnly cookie Not accessible via javascript , Must have expiry at some point.
 
 #### How They Work Together?
 - User logs in → Receives access & refresh tokens.
