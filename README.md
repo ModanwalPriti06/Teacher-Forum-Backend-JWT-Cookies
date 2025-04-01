@@ -123,6 +123,7 @@ userSchema.pre("save", async function (next) {
 # JWT (Authorization only not authentication)
 - JWT (JSON Web Token) is a secure and compact way to transmit information between parties as a JSON object. It is commonly used for authentication and authorization in web applications.
 - JWT is stateless, meaning the server doesn’t store sessions, making it scalable and efficient!
+- JWT Playground: https://jwt.io/
 
 <img width="1680" alt="Screenshot 2025-04-01 at 10 52 17 PM" src="https://github.com/user-attachments/assets/1a92ae99-aa3c-4e0a-b642-6da3cde72de0" />
 <img width="1680" alt="Screenshot 2025-04-01 at 10 40 50 PM" src="https://github.com/user-attachments/assets/c25ac121-e27d-4351-821e-56ca4ea43351" />
@@ -138,11 +139,11 @@ userSchema.pre("save", async function (next) {
 ## JWT Structure 
 ```
 Header.Payload.Signature
-
 ```
 - Header : Contains metadata like the algorithm used (HS256).
 - Payload : Contains user data (e.g., user ID, expiration time).
 - Signature : A hashed value to verify the token’s integrity.
+<img width="1680" alt="Screenshot 2025-04-01 at 10 56 29 PM" src="https://github.com/user-attachments/assets/f7a17956-f089-4d33-a213-c4b2351fe9ff" />
 
 ## JWT Hazards 
 - XSS - cross-site scripting
