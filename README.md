@@ -125,6 +125,8 @@ userSchema.pre("save", async function (next) {
 - JWT is stateless, meaning the server doesn’t store sessions, making it scalable and efficient!
 
 <img width="1680" alt="Screenshot 2025-04-01 at 10 47 55 PM" src="https://github.com/user-attachments/assets/d33a3da4-157e-4bc9-9237-e40e768d0ffd" />
+<img width="1680" alt="Screenshot 2025-04-01 at 10 40 50 PM" src="https://github.com/user-attachments/assets/c25ac121-e27d-4351-821e-56ca4ea43351" />
+<img width="1680" alt="Screenshot 2025-04-01 at 10 40 45 PM" src="https://github.com/user-attachments/assets/56e64c0b-7de1-46a1-ae64-aa5fd9c59f4d" />
 
 ## How JWT Works?
 - User Logs In – The user provides credentials (e.g., email & password). sessionId store in server memory.
