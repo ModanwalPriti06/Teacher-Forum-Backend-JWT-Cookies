@@ -120,12 +120,12 @@ userSchema.pre("save", async function (next) {
 - Sending otp : resolve to add Ip Address with the help of stack overflow and chatgpt.
 - Login and not navigating home page: Not updating auth data in AuthContext.
 ---
-# JWT
+# JWT (Authorization only not authentication)
 - JWT (JSON Web Token) is a secure and compact way to transmit information between parties as a JSON object. It is commonly used for authentication and authorization in web applications.
 - JWT is stateless, meaning the server doesn’t store sessions, making it scalable and efficient!
 
 ## How JWT Works?
-- User Logs In – The user provides credentials (e.g., email & password).
+- User Logs In – The user provides credentials (e.g., email & password). sessionId store in server memory.
 - Server Generates JWT – If credentials are valid, the server creates a JWT and sends it to the client.
 - Client Stores Token – The client stores the JWT (usually in localStorage or HTTP-only cookies).
 - Client Sends JWT with Requests – For protected routes, the client includes the JWT in the request headers.
@@ -245,6 +245,10 @@ app.get("/protected", authenticate, (req, res) => {
 - At this stage, the user doesn't have a token yet.
 - The login process generates JWT after successful authentication.
 - JWT is only needed for subsequent requests after login.
+
+---
+# Implementation
+
 
 
 
