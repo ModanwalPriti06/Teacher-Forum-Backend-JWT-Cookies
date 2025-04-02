@@ -144,6 +144,7 @@ Header.Payload.Signature
 - Payload : Contains user data (e.g., user ID, expiration time).
 - Signature : A hashed value to verify the token’s integrity.
 <img width="1680" alt="Screenshot 2025-04-01 at 10 56 29 PM" src="https://github.com/user-attachments/assets/f7a17956-f089-4d33-a213-c4b2351fe9ff" />
+#### NOTE - Token creter three part header.payload.signature and here signature is secrete key which is admin only know and can't get anyone. If some person change hearder and payload but they can't change anything in signature. We are verify signature if match then authorized user. 
 
 ## JWT Hazards 
 - XSS - cross-site scripting
