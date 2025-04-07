@@ -261,6 +261,20 @@ app.get("/protected", authenticate, (req, res) => {
 - where we are login that api - jwt.sign(payload, signature) it will return res
 - check other - jwt.verify(token, signature)
 
+### Sending Token to user there is 2 way:
+- cookies:
+   - cookies always create by server. create cookies - res.cookie(token, sign , {domain:  ---}). cookie only for browser application.
+   - so whenever we req either get, post, put then browser send automatically token from cookie is token is valid or not means user login or not.
+   - Cookies domain specific hota hai. means jo server jis domain k lie cookie banata hai vo usi k pass jati hai.
+- response through
+    - server create token and send token then user safe that token.
+    - Question is there how u will get that token. So will say whenever you req then in header and key vlaue pair keep that token vlaue.
+        - header : { authorization: 'Bearer <cookie token>' }  // standard way
+
+# Authentication and Authorization
+
+      
+
 
 
 
