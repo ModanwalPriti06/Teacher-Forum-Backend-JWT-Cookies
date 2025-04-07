@@ -218,8 +218,10 @@ app.get("/protected", authenticate, (req, res) => {
 });
 
 ```
-
+- **https://www.youtube.com/watch?v=mGrVmEex6_g&list=PLinedj3B30sDby4Al-i13hQJGQoRQDfPo&index=24**
+- 
 ## Where is JWT Used?
+- JWT is stateless authentication
 - User Authentication (Login systems)
 - Authorization (Restrict access to certain pages)
 - API Security (Protect routes)
