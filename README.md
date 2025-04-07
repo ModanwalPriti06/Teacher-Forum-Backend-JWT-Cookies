@@ -257,6 +257,10 @@ app.get("/protected", authenticate, (req, res) => {
 
 ---
 # Implementation
+- npm i jsonwebtoken
+- where we are login that api - jwt.sign(payload, signature) it will return res
+- check other - jwt.verify(token, signature)
+
 
 
 
