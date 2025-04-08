@@ -272,6 +272,12 @@ app.get("/protected", authenticate, (req, res) => {
         - header : { authorization: 'Bearer <cookie token>' }  // standard way
 
 # Authentication and Authorization
+- Authentication: Proving who you are, Identity verification, First (login step), Based on Credentials (username, password, token)		
+- Authorization: Defining what you're allowed to do, Permission control, After authentication, Based on Roles, policies, access rights
+
+
+
+	
 
       
 
