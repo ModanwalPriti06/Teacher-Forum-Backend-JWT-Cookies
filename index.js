@@ -39,6 +39,8 @@ app.use(cookieParser({
 app.use('/auth' , authRoutes);
 app.use('/class', classroomRoutes);
 
+app.use(express.urlencoded({extended: false})); //add for file and image 
+
 app.get('/', (req, res)=>{
     console.log('hello');
     return res.status(200).send('Hello')

@@ -7,6 +7,20 @@ const responseFunction = require('../utiles/responseFunction');
 const authTokenHandler = require('../middlewares/checkAuthToken');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const multer  = require('multer')
+// const upload = multer({ dest: '../uploads' })  // whatever file uploading keep in uploads folder
+
+// diskstorage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    return cb(null, './uploads');
+  },
+  filename: function (req, file, cb) {
+    return cb(null, `${Date.now()}-${file.originalname}`);
+  }  
+})
+
+const upload = multer({ storage: storage })
 
 // Create mail
 const mailer = async (recieveremail, code) => {
@@ -112,6 +126,31 @@ router.post('/addpost', authTokenHandler, async (req, res) => {
         res.status(201).json({ message: 'Post created successfully', post: newPost });
     }
     catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+})
+
+// Upload file post api
+router.post('/uploadFile', authTokenHandler, upload.single('notebookFile'), async (req, res) => {
+    const { title, file, classId } = req.body;
+    try {
+        const classroom = await Classroom.findById(classId);
+        if (!classroom) {
+            return res.status(404).json({ message: 'Classroom not found' });
+        }
+        const newPost = new Post({
+            fileTitle: title,
+            file,
+            classId,
+            createdBy: req.userId,  // req.user comes from requireAuth middleware
+        });
+        await newPost.save();
+        classroom.posts.push(newPost._id);
+        await classroom.save();
+        res.status(201).json({ message: 'Post created successfully', post: newPost });
+    }
+    catch (error) {
+        console.log(error)
         res.status(500).json({ message: 'Server error', error });
     }
 })
