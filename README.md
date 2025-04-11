@@ -1,4 +1,11 @@
-# Teacher-Forum
+# Teacher-Forum   ( npm run dev / npm run start )
+
+```
+"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+},
+```
 
 In this project there is two role teacher and student:
 ## Teacher: 
