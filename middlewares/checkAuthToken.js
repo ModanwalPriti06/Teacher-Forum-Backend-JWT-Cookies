@@ -38,7 +38,7 @@ function checkAuth(req, res, next) {
             })
         }
         else{  // if token is not expire
-            req.userId = decoded.userId;
+            req.userId = decoded.userId; // checking backend storage userId and frontend userId
             req.ok = true;
             req.message = "Authentication successful";
             next();
