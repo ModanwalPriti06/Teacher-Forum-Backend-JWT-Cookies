@@ -284,8 +284,55 @@ app.get("/protected", authenticate, (req, res) => {
 
 
 
-	
+# Complete Program of JWT
 
+- We then define an app.get() method to create a json string with the desired message.
+```
+//index.js
+
+const express = require("express");
+const jwt = require("jsonwebtoken");
+
+app.get("/api", (req, res) => { 
+  res.json({    message: "Hey, there! Welcome to this API service"  });
+});
+
+```
+- verify() method then takes the request token as input and verifies whether it is correct. We set it to print an error message if it doesn’t match; otherwise, we print a message on the screen stating that the post was created.
+- Finally, we define the method verifyToken() that takes care of the token verification process. 
+```
+app.post("/api/posts", verifyToken, (req, res) => { 
+  jwt.verify(req.token, "secretkey", (err, authData) => {  
+    if (err) { 
+      res.sendStatus(403);
+    } else {   
+      res.json({ message: "POST created...", authData });
+    }  
+  });
+});
+
+function verifyToken(req, res, next) {
+  const bearerHeader = req.headers["authorization"];
+  if (typeof bearerHeader !== "undefined") {
+    const bearerToken = bearerHeader.split(" ")[1];
+    req.token = bearerToken;
+    next(); 
+    } else {  
+      res.sendStatus(403);  
+    }
+}
+```
+- JWT then uses the sign() method to create a JSON Web Token for that user and returns the token in the form of a JSON string.
+```
+app.post("/api/login", (req, res) => { 
+  const user = { id: 1, username: "john", email: "john@gmail.com" };
+  jwt.sign({ user: user }, "secretkey", (err, token) => { 
+    res.json({ token });
+  });
+});
+
+app.listen(3000, () => console.log("Server started"));
+```
       
 
 
