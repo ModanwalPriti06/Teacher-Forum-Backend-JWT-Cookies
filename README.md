@@ -335,10 +335,8 @@ app.listen(3000, () => console.log("Server started"));
 ```
       
 
-
-
-
-
+### Checkout if it is applicable for know JWT
+https://deutschetelekom.udemy.com/course/nodejs-interview-questions/learn/lecture/36540736#overview
 
 
 
